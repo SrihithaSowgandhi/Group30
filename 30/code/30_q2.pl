@@ -49,3 +49,14 @@ show_left(Tree, ParentPrec, String) :-
     ->  format(string(String), '(~w)', [S0])
     ;   String = S0
     ).
+
+% show_right(Tree, ParentPrec, String): String is the string of Tree from show/2,
+% wrapped in parentheses exactly when Tree is t(Op,_,_) whose precedence is lower than or equal to ParentPrec.
+show_right(Tree, ParentPrec, String) :-
+    show(Tree, S0),
+    (   Tree = t(Op, _, _),
+        prec(Op, Q),
+        Q =< ParentPrec
+    ->  format(string(String), '(~w)', [S0])
+    ;   String = S0
+    ).
