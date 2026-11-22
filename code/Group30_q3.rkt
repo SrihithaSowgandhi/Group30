@@ -24,3 +24,13 @@
       (cons (car tree)
             (preorder-acc (cadr tree)
                           (preorder-acc (caddr tree) acc)))))
+
+; (postorder-acc tree acc): the values of tree in postorder, followed by the list acc.
+; For '() it is acc; otherwise: the left subtree's values, then the right subtree's values,
+; then the node value, then acc. Built right to left with cons.
+(define (postorder-acc tree acc)
+  (if (null? tree)
+      acc
+      (postorder-acc (cadr tree)
+                     (postorder-acc (caddr tree)
+                                    (cons (car tree) acc)))))

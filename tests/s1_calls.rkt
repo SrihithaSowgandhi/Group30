@@ -18,3 +18,10 @@
 (display (preorder-acc t3 '())) (newline)
 (display (preorder-acc t4 '())) (newline)
 (display (preorder-acc '() '())) (newline)
+
+; postorder-acc (helper for print-all-traversals)
+(display (postorder-acc t1 '())) (newline)
+(display (postorder-acc t2 '())) (newline)
+(display (postorder-acc t3 '())) (newline)
+(display (postorder-acc t4 '())) (newline)
+(display (postorder-acc '() '())) (newline)
