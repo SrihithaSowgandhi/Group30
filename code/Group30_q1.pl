@@ -68,3 +68,12 @@ clue(8, Solution) :-
 % number N in the list Active (trivially true when Active is empty).
 satisfies_clues(Active, Solution) :-
     forall(member(N, Active), clue(N, Solution)).
+
+% main: finds one solution of the puzzle and prints one line per friend.
+main :-
+    once((candidate_solution(S), satisfies_clues([1,2,3,4,5,6,7,8], S))),
+    forall(member(Friend, S), print_friend(Friend)).
+
+% print_friend(p(Name, Dept, Lang, Project)): prints the line "Name = [Dept, Lang, Project]".
+print_friend(p(Name, Dept, Lang, Project)) :-
+    format('~w = ~w~n', [Name, [Dept, Lang, Project]]).
