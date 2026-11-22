@@ -36,9 +36,6 @@ clue(4, Solution) :-
     member(p('Ben', Dept, _, web), Solution),
     Dept \= testing.
 
-:- use_module(library(lists)).
-
-
 % clue(5, Solution): in Solution, the friend whose favorite language is Java
 % works in the design department.
 clue(5, Solution) :-
@@ -64,19 +61,23 @@ clue(8, Solution) :-
     member(p(_, research, Lang, data), Solution),
     Lang \= javascript.
 
+% CLUE 9: The friend who prefers embedded projects works in the design department.
+clue(9, Solution) :-
+    member(p(_, design, _, embedded), Solution).
+
 % satisfies_clues(Active, Solution): clue(N, Solution) holds for every clue
 % number N in the list Active (trivially true when Active is empty).
 satisfies_clues(Active, Solution) :-
     forall(member(N, Active), clue(N, Solution)).
 
-% main: finds one solution of the puzzle and prints one line per friend.
+% main: finds one solution satisfying clues 1 to 9 and prints one line per friend.
 main :-
-    once((candidate_solution(S), satisfies_clues([1,2,3,4,5,6,7,8], S))),
+    once((candidate_solution(S), satisfies_clues([1,2,3,4,5,6,7,8,9], S))),
     forall(member(Friend, S), print_friend(Friend)).
 
 % print_friend(p(Name, Dept, Lang, Project)): prints the line "Name = [Dept, Lang, Project]".
 print_friend(p(Name, Dept, Lang, Project)) :-
-    format('~w = ~w~n', [Name, [Dept, Lang, Project]]).
+    format('~w = [~w, ~w, ~w]~n', [Name, Dept, Lang, Project]).
 
 % count_solutions(Active, N): N is the number of solutions S of candidate_solution(S)
 % that satisfy every clue listed in Active and ignore all other clues.
