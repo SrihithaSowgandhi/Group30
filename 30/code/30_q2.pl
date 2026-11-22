@@ -9,3 +9,15 @@ split_nonempty(List, Left, Right) :-
     Left = [_|_],
     Right = [_|_],
     append(Left, Right, List).
+
+% apply_op(Op, A, B, V): V is the integer result of applying Op (one of +, -, *, /) to integers A and B; / requires B =\= 0 and A mod B =:= 0.
+apply_op(+, A, B, V) :-
+    V is A + B.
+apply_op(-, A, B, V) :-
+    V is A - B.
+apply_op(*, A, B, V) :-
+    V is A * B.
+apply_op(/, A, B, V) :-
+    B =\= 0,
+    A mod B =:= 0,
+    V is A // B.
