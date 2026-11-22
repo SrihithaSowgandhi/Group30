@@ -29,3 +29,12 @@
     (if (< (my-length lst) n)
         (cons x processed)
         processed)))
+
+; (print-insert-result): reads x, lst and n from standard input (in this order, with read),
+; then prints (insert-if-short x lst n) with display, followed by a newline. Prints nothing else.
+(define (print-insert-result)
+  (let* ((x (read))
+         (lst (read))
+         (n (read)))
+    (display (insert-if-short x lst n))
+    (newline)))
