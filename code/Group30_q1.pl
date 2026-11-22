@@ -116,3 +116,10 @@ clue(4, Solution) :-
 % works in the design department.
 clue(5, Solution) :-
     member(p(_, design, java, _), Solution).
+
+% clue(6, Solution): in Solution, Carlas project is not embedded and
+% Carla does not work in development.
+clue(6, Solution) :-
+    member(p('Carla', Dept, _, Project), Solution),
+    Project \= embedded,
+    Dept \= development.
