@@ -87,3 +87,9 @@ candidate(Numbers, Equation) :-
 % namely the first solution of candidate/2; it fails if candidate/2 has none.
 generate_equation(List, Equation) :-
     once(candidate(List, Equation)).
+
+% all_equations(List, Equations): Equations is the duplicate-free list, sorted by sort/2,
+% of all strings E such that candidate(List, E) holds; it is [] when there are none.
+all_equations(List, Equations) :-
+    findall(E, candidate(List, E), Es),
+    sort(Es, Equations).
