@@ -32,3 +32,9 @@ expr_value(Numbers, t(Op, L, R), Value) :-
     expr_value(Left, L, LV),
     expr_value(Right, R, RV),
     apply_op(Op, LV, RV, Value).
+
+% prec(Op, P): P is the precedence level of operator Op: 1 for + and -, 2 for * and /.
+prec(+, 1).
+prec(-, 1).
+prec(*, 2).
+prec(/, 2).
