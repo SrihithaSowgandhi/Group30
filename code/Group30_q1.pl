@@ -63,3 +63,8 @@ clue(7, Solution) :-
 clue(8, Solution) :-
     member(p(_, research, Lang, data), Solution),
     Lang \= javascript.
+
+% satisfies_clues(Active, Solution): clue(N, Solution) holds for every clue
+% number N in the list Active (trivially true when Active is empty).
+satisfies_clues(Active, Solution) :-
+    forall(member(N, Active), clue(N, Solution)).
