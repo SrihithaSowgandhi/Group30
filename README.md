@@ -26,6 +26,7 @@ The Scheme files and the Prolog files only contain definitions, so loading them 
 | Problem | Command | Passing result |
 |---|---|---|
 | P1 | `swipl -q -f 30/tests/p1_tests.pl -g run_tests -t halt` | last line: `SUMMARY: 23 of 23 checks passed` |
+| P2 | `swipl -q -f 30/tests/p2_tests.pl -g run_p2_tests -t halt` | 10 lines, all starting with `PASS` |
 | S1 | `sh 30/tests/run_s1.sh` | `S1: all checks passed` |
 | S2 | `sh 30/tests/run_s2.sh` | `S2: all checks passed` |
 | S2 (standard input) | `sh 30/tests/run_s2_stdin.sh` | `S2 stdin: all checks passed` |
