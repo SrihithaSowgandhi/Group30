@@ -72,3 +72,13 @@ show(t(Op, L, R), String) :-
     show_left(L, P, LS),
     show_right(R, P, RS),
     format(string(String), '~w~w~w', [LS, Op, RS]).
+
+% candidate(Numbers, Equation): Equation is the string "L=R" where Numbers splits into two
+% non-empty parts, each part has an expression tree, and both trees have the same value.
+candidate(Numbers, Equation) :-
+    split_nonempty(Numbers, Left, Right),
+    expr_value(Left, LTree, Value),
+    expr_value(Right, RTree, Value),
+    show(LTree, LS),
+    show(RTree, RS),
+    format(string(Equation), '~w=~w', [LS, RS]).
