@@ -7,3 +7,11 @@
     (if (null? rest)
         count
         (loop (cdr rest) (+ count 1)))))
+
+; (my-map f lst): the list of the results of applying f to each element of lst, in order.
+; '() for '(), otherwise f of the first element consed onto the map of the rest.
+(define (my-map f lst)
+  (if (null? lst)
+      '()
+      (cons (f (car lst))
+            (my-map f (cdr lst)))))

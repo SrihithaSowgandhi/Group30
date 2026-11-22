@@ -11,3 +11,10 @@
 (display (my-length '((1 2) (3 4 5) (6) ()))) (newline)
 (display (my-length '(a))) (newline)
 (display (my-length (make-numbers 10000))) (newline)
+
+; my-map
+(display (my-map (lambda (x) (* x 2)) '(1 2 3))) (newline)
+(display (my-map (lambda (x) (* x 2)) '())) (newline)
+(display (my-map (lambda (x) (list x x)) '(a b))) (newline)
+(display (my-length (my-map (lambda (x) (+ x 1)) (make-numbers 10000)))) (newline)
+(display (car (my-map (lambda (x) (+ x 1)) (make-numbers 10000)))) (newline)
