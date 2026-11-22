@@ -1,5 +1,5 @@
 % Loads the solution file, resolved relative to this test file.
-:- consult('../code/Group30_q1.pl').
+:- consult('../code/30_q1.pl').
 
 % good_solution(S): S is the unique intended solution of the puzzle, so it satisfies clues 1 to 9.
 good_solution([p('Alex', design, java, embedded),

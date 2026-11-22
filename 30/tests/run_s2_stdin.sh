@@ -1,8 +1,9 @@
 #!/bin/sh
 # Tests print-insert-result: joins the solution with the call (print-insert-result), feeds each
 # input on standard input and compares the output with the expected text.
-# Usage (from the repository root): sh tests/run_s2_stdin.sh
-cat code/Group30_q4.rkt > /tmp/s2_stdin.rkt
+# Usage: sh 30/tests/run_s2_stdin.sh from the repository root (it works from any folder, it moves to 30/ itself).
+cd "$(dirname "$0")/.." || exit 1
+cat code/30_q4.rkt > /tmp/s2_stdin.rkt
 echo "(print-insert-result)" >> /tmp/s2_stdin.rkt
 fail=0
 
