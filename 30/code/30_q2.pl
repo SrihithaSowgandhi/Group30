@@ -60,3 +60,15 @@ show_right(Tree, ParentPrec, String) :-
     ->  format(string(String), '(~w)', [S0])
     ;   String = S0
     ).
+
+% show(Tree, String): String is the space-free canonical string of Tree; an integer is its
+% decimal form, and t(Op,L,R) is the left string, then Op, then the right string, with
+% parentheses added by show_left/3 and show_right/3.
+show(Tree, String) :-
+    integer(Tree),
+    format(string(String), '~d', [Tree]).
+show(t(Op, L, R), String) :-
+    prec(Op, P),
+    show_left(L, P, LS),
+    show_right(R, P, RS),
+    format(string(String), '~w~w~w', [LS, Op, RS]).
