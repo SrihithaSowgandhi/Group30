@@ -21,3 +21,14 @@ apply_op(/, A, B, V) :-
     B =\= 0,
     A mod B =:= 0,
     V is A // B.
+
+% expr_value(Numbers, Tree, Value): Tree is an expression tree over Numbers,
+% using each number once and in order, and Value is the value of Tree.
+% A single number is its own tree and value; otherwise Numbers splits into
+% two non-empty parts, each with its own tree and value, combined by an operator.
+expr_value([N], N, N).
+expr_value(Numbers, t(Op, L, R), Value) :-
+    split_nonempty(Numbers, Left, Right),
+    expr_value(Left, L, LV),
+    expr_value(Right, R, RV),
+    apply_op(Op, LV, RV, Value).
