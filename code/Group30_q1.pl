@@ -29,3 +29,10 @@ clue(2, Solution) :-
 % likes Python.
 clue(3, Solution) :-
     member(p(_, testing, python, _), Solution).
+
+% clue(4, Solution): in Solution, Bens project is web and Ben does not work
+% in testing.
+clue(4, Solution) :-
+    member(p('Ben', Dept, _, web), Solution),
+    Dept \= testing.
+
