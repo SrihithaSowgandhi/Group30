@@ -15,3 +15,17 @@
       '()
       (cons (f (car lst))
             (my-map f (cdr lst)))))
+
+; (insert-if-short x lst n): lst with x inserted at the front of every list, at every level of
+; nesting, whose length (measured on the original list) is less than n. Each element of lst
+; that is a list ('() included) is processed recursively and atoms are kept; then x is
+; consed onto the front when (my-length lst) < n.
+(define (insert-if-short x lst n)
+  (let ((processed (my-map (lambda (e)
+                             (if (or (pair? e) (null? e))
+                                 (insert-if-short x e n)
+                                 e))
+                           lst)))
+    (if (< (my-length lst) n)
+        (cons x processed)
+        processed)))
