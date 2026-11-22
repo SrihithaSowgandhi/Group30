@@ -25,3 +25,10 @@
 (display (postorder-acc t3 '())) (newline)
 (display (postorder-acc t4 '())) (newline)
 (display (postorder-acc '() '())) (newline)
+
+; print-all-traversals
+(print-all-traversals t1)
+(print-all-traversals t2)
+(print-all-traversals t3)
+(print-all-traversals t4)
+(print-all-traversals '())
