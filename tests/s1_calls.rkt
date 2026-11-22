@@ -46,3 +46,10 @@
 (display (count-leaves t3)) (newline)
 (display (count-leaves t4)) (newline)
 (display (count-leaves '())) (newline)
+
+; print-height-and-leaves
+(print-height-and-leaves t1)
+(print-height-and-leaves t2)
+(print-height-and-leaves t3)
+(print-height-and-leaves t4)
+(print-height-and-leaves '())
