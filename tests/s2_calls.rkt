@@ -43,3 +43,8 @@
 (display (ins-q '((1) 2 (3 4 5)))) (newline)
 (display (my-length ((make-inserter 'x (lambda (len) (< len 10001))) (make-numbers 10000)))) (newline)
 (display (car ((make-inserter 'x (lambda (len) (< len 2))) (nest 100)))) (newline)
+
+; insert-if-short (final version, defined through make-inserter)
+(display (insert-if-short 'x '(()) 2)) (newline)
+(display (insert-if-short 'x '() 1)) (newline)
+(display (insert-if-short 'x '(1 (2 (3))) 2)) (newline)
