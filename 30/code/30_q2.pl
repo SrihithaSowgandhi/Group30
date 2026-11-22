@@ -82,3 +82,8 @@ candidate(Numbers, Equation) :-
     show(LTree, LS),
     show(RTree, RS),
     format(string(Equation), '~w=~w', [LS, RS]).
+
+% generate_equation(List, Equation): Equation is one valid equation string for List,
+% namely the first solution of candidate/2; it fails if candidate/2 has none.
+generate_equation(List, Equation) :-
+    once(candidate(List, Equation)).
