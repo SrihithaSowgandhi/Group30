@@ -77,3 +77,9 @@ main :-
 % print_friend(p(Name, Dept, Lang, Project)): prints the line "Name = [Dept, Lang, Project]".
 print_friend(p(Name, Dept, Lang, Project)) :-
     format('~w = ~w~n', [Name, [Dept, Lang, Project]]).
+
+% count_solutions(Active, N): N is the number of solutions S of candidate_solution(S)
+% that satisfy every clue listed in Active and ignore all other clues.
+count_solutions(Active, N) :-
+    findall(S, (candidate_solution(S), satisfies_clues(Active, S)), Solutions),
+    length(Solutions, N).
