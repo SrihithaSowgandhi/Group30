@@ -32,3 +32,10 @@
 (print-all-traversals t3)
 (print-all-traversals t4)
 (print-all-traversals '())
+
+; tree-height (helper for print-height-and-leaves)
+(display (tree-height t1)) (newline)
+(display (tree-height t2)) (newline)
+(display (tree-height t3)) (newline)
+(display (tree-height t4)) (newline)
+(display (tree-height '())) (newline)

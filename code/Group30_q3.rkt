@@ -44,3 +44,11 @@
   (newline)
   (display (postorder-acc tree '()))
   (newline))
+
+; (tree-height tree): the height of tree. The height of '() is 0; the height of a node
+; is 1 plus the larger of the heights of its left and right subtrees.
+(define (tree-height tree)
+  (if (null? tree)
+      0
+      (+ 1 (max (tree-height (cadr tree))
+                (tree-height (caddr tree))))))
