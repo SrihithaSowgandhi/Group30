@@ -14,3 +14,13 @@
 (define (print-inorder tree)
   (display (inorder-acc tree '()))
   (newline))
+
+; (preorder-acc tree acc): the values of tree in preorder, followed by the list acc.
+; For '() it is acc; otherwise: the node value, then the left subtree's values, then the
+; right subtree's values followed by acc. Built right to left with cons.
+(define (preorder-acc tree acc)
+  (if (null? tree)
+      acc
+      (cons (car tree)
+            (preorder-acc (cadr tree)
+                          (preorder-acc (caddr tree) acc)))))

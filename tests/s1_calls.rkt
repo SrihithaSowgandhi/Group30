@@ -11,3 +11,10 @@
 (print-inorder t3)
 (print-inorder t4)
 (print-inorder '())
+
+; preorder-acc (helper for print-all-traversals)
+(display (preorder-acc t1 '())) (newline)
+(display (preorder-acc t2 '())) (newline)
+(display (preorder-acc t3 '())) (newline)
+(display (preorder-acc t4 '())) (newline)
+(display (preorder-acc '() '())) (newline)
