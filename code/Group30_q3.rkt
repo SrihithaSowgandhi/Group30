@@ -52,3 +52,12 @@
       0
       (+ 1 (max (tree-height (cadr tree))
                 (tree-height (caddr tree))))))
+
+; (count-leaves tree): the number of leaves of tree. '() has no leaves; a node whose left
+; and right subtrees are both '() is one leaf; otherwise it is the sum of the leaf counts
+; of the left and right subtrees.
+(define (count-leaves tree)
+  (cond ((null? tree) 0)
+        ((and (null? (cadr tree)) (null? (caddr tree))) 1)
+        (else (+ (count-leaves (cadr tree))
+                 (count-leaves (caddr tree))))))

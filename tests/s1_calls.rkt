@@ -39,3 +39,10 @@
 (display (tree-height t3)) (newline)
 (display (tree-height t4)) (newline)
 (display (tree-height '())) (newline)
+
+; count-leaves (helper for print-height-and-leaves)
+(display (count-leaves t1)) (newline)
+(display (count-leaves t2)) (newline)
+(display (count-leaves t3)) (newline)
+(display (count-leaves t4)) (newline)
+(display (count-leaves '())) (newline)
