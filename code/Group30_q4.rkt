@@ -38,3 +38,19 @@
          (n (read)))
     (display (insert-if-short x lst n))
     (newline)))
+
+; (make-inserter x len-ok?): a function of one argument (a list) that inserts x at the front of
+; every list, at every level of nesting, whose length (measured on the original list) satisfies
+; len-ok?, a function of one number. Inside, insert processes each element that is a list
+; ('() included) recursively, keeps atoms, then conses x on when (len-ok? (my-length lst)).
+(define (make-inserter x len-ok?)
+  (letrec ((insert (lambda (lst)
+                     (let ((processed (my-map (lambda (e)
+                                                (if (or (pair? e) (null? e))
+                                                    (insert e)
+                                                    e))
+                                              lst)))
+                       (if (len-ok? (my-length lst))
+                           (cons x processed)
+                           processed)))))
+    insert))

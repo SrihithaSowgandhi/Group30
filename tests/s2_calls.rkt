@@ -32,3 +32,14 @@
 (display (car (insert-if-short 'x (nest 100) 2))) (newline)
 (display (my-length (insert-if-short 'x (make-numbers 10000) 10001))) (newline)
 (display (my-length (insert-if-short 'x (make-numbers 10000) 10000))) (newline)
+
+; make-inserter
+(display ((make-inserter 'x (lambda (len) (< len 2))) '((1) (2 3) ()))) (newline)
+(display ((make-inserter 0 (lambda (len) (= len 2))) '((1 2) 3 (4)))) (newline)
+(display ((make-inserter 'z (lambda (len) (>= len 0))) '(a ()))) (newline)
+(define ins-q (make-inserter 'q (lambda (len) (< len 3))))
+(display (ins-q '(1 2))) (newline)
+(display (ins-q '(1 2 3))) (newline)
+(display (ins-q '((1) 2 (3 4 5)))) (newline)
+(display (my-length ((make-inserter 'x (lambda (len) (< len 10001))) (make-numbers 10000)))) (newline)
+(display (car ((make-inserter 'x (lambda (len) (< len 2))) (nest 100)))) (newline)
