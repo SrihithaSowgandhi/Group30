@@ -24,3 +24,8 @@ clue(2, Solution) :-
     member(p('Alex', Dept, Lang, _), Solution),
     Dept \= development,
     Lang \= 'c++'.
+
+% clue(3, Solution): in Solution, the friend working in the testing department
+% likes Python.
+clue(3, Solution) :-
+    member(p(_, testing, python, _), Solution).
